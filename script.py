@@ -30,6 +30,7 @@ disponibilite_textes = [disponibilites.get_text(strip=True)] if disponibilites e
 # Extraire la description
 descriptions = soup.find("div", id="product_description")
 description = descriptions.find_next_sibling("p").text.strip()
+
 # Edition du fichier CSV
 en_tete = ["titre", "prix", "disponibilité", "description"]
 with open("../data.csv", "w", newline="") as csv_file:
