@@ -13,15 +13,13 @@ soup = BeautifulSoup(page, "html.parser")
 
 # Extraire le titre
 titres = soup.find("h1")
-titre_textes = []
+titre_textes = [titres.get_text(strip=True)] if titres else []
 for titre in titres:
     titre_textes.append(titre.string)
 
 # Extraire le prix
 prix = soup.find("p", class_="price_color")
-prix_textes = []
-for prix in prix:
-    prix_textes.append(prix.string)
+prix_textes = [prix.get_text(strip=True)] if prix else []
 
 # Extraire la disponibilité
 disponibilites = soup.find("p", class_="instock availability")
