@@ -11,11 +11,11 @@ def scrape_product(url):
     
     # Extraction des données
     product_page_url = url
-    upc = soup.find("th", text="UPC").find_next("td").text
+    upc = soup.find("th", string="UPC").find_next("td").text
     title = soup.find("h1").text
-    price_incl_tax = soup.find("th", text="Price (incl. tax)").find_next("td").text
-    price_excl_tax = soup.find("th", text="Price (excl. tax)").find_next("td").text
-    number_available = soup.find("th", text="Availability").find_next("td").text
+    price_incl_tax = soup.find("th", string="Price (incl. tax)").find_next("td").text
+    price_excl_tax = soup.find("th", string="Price (excl. tax)").find_next("td").text
+    number_available = soup.find("th", string="Availability").find_next("td").text
     product_description = soup.find("meta", {"name": "description"})
     product_description = product_description["content"].strip() if product_description else ""
     category = soup.find("ul", class_="breadcrumb").find_all("li")[-2].text.strip()
