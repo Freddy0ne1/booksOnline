@@ -123,7 +123,7 @@ def save_to_csv(books, category_name):
     os.makedirs("../output", exist_ok=True)
     filepath = os.path.join("../output", filename)
 
-    with open(filepath, "w", newline="", encoding="utf-8") as file:
+    with open(filepath, "w", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=books[0].keys())
         writer.writeheader()
         writer.writerows(books)
