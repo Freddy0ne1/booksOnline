@@ -2,6 +2,7 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
+import os
 
 # Fonction Scrape_product
 def scrape_product(url):
@@ -35,8 +36,18 @@ def scrape_product(url):
         "review_rating": review_rating,
         "image_url": image_url
     }
+# Création du dossier de stackage
+nom_dossier = "../output"  
 
-def save_to_csv(data, filename="../data.csv"):
+# Vérifier si le dossier n'existe pas avant de le créer
+if not os.path.exists(nom_dossier):
+    os.makedirs(nom_dossier)
+    print(f"Dossier '{nom_dossier}' créé avec succès.")
+else:
+    print(f"Le dossier '{nom_dossier}' existe déjà.")
+
+
+def save_to_csv(data, filename="../output/data.csv"):
     fieldnames = data.keys()
     
     with open(filename, mode="w", newline="") as file:
