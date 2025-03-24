@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
+from tqdm import tqdm
 import os
 
 # Fonction pour extraire les liens des livres d'une page donnée
@@ -64,10 +65,15 @@ def scrape_books(base_url, start_url):
         else:
             url = None
     
-    books_data = [scrape_product(book_url) for book_url in book_urls]
+# Intégration de la barre progression du scraping de chaque livre
+    books_data = []
+    print(f"\nScraping des détails de {len(book_urls)} livres en cours...\n")
+    for book_data in tqdm(book_urls, desc="Progression", unit="livre"):
+        books_data.append(scrape_product(book_data))
+        
     return books_data
 
-# Création du dossier de stackage
+# Création du dossier de stockage
 nom_dossier = "../output"  
 
 # Vérifier si le dossier n'existe pas avant de le créer
@@ -76,12 +82,13 @@ if not os.path.exists(nom_dossier):
     print(f"Dossier '{nom_dossier}' créé avec succès.")
 else:
     print(f"Le dossier '{nom_dossier}' existe déjà.")
+    
 
 # Fonction pour enregistrer les données extraites dans un fichier CSV
 def save_to_csv(books, filename="../output/books.csv"):
     if books:
         fieldnames = books[0].keys()
-        with open(filename, "w", newline="") as file:
+        with open(filename, "w", newline="", encoding= "utf-8") as file:
             writer = csv.DictWriter(file, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(books)

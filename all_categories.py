@@ -86,7 +86,7 @@ def download_image(url, path):
 
 # Scrape tous les livres d'une catégorie et télécharge leurs images.
 def scrape_books_from_category(category_name, category_url):
-    print(f"\nScraping catégorie : {category_name}")
+    print(f"\nScraping de la catégorie : {category_name}")
     url = category_url
     book_urls = []
 
@@ -100,7 +100,9 @@ def scrape_books_from_category(category_name, category_url):
     image_folder = f"../output/images/{safe_category}"
     os.makedirs(image_folder, exist_ok=True)
 
-    for book_url in tqdm(book_urls, desc=f"  → Livres {category_name}"):
+# Intégration de la barre de progression 
+    print(f"\nScraping de {len(book_urls)} livres en cours...\n")
+    for book_url in tqdm(book_urls, desc=f"  → Livres de la catégorie : {category_name}"):
         try:
             book_data = scrape_product(book_url)
             books_data.append(book_data)
@@ -127,6 +129,7 @@ def save_to_csv(books, category_name):
         writer = csv.DictWriter(file, fieldnames=books[0].keys())
         writer.writeheader()
         writer.writerows(books)
+
 
     print(f"Données sauvegardées dans : {filepath}")
 
