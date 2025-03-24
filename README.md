@@ -27,10 +27,10 @@ Le script "all_categories.py" permet de scraper automatiquement les livres du si
 
 Avant d'exécuter le script, il faut d'abord créer un environnement virtuel et l'activer avec les commandes ci-dessous
 
-Pour créer : 
+Pour le créer : 
 python -m venv env
 
-Pour l'activer
+Pour l'activer :
 source env/scripts/activate
 
 Ce script fonctionne avec Python 3 , il faut impérativement avoir installé les bibliothèques indiquées dans le fichier requirements.txt
