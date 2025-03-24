@@ -8,7 +8,7 @@ import re
 
 BASE_SITE_URL = "https://books.toscrape.com/"
 
-# Cette fonction récupère toutes les catégories de livres depuis la page d'accueil
+# Récupération de toutes les catégories de livres depuis la page d'accueil
 def get_all_categories():
     response = requests.get(BASE_SITE_URL)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -23,7 +23,7 @@ def get_all_categories():
     
     return categories
 
-# Cette fonction extrait les liens des livres d'une page et gère la pagination
+# Extraction des liens des livres d'une page et la gestion la pagination
 def get_books_from_page(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
@@ -38,7 +38,7 @@ def get_books_from_page(url):
 
     return books, next_url
 
-# Cette fonction extrait les données détaillées d'un livre : titre, prix, disponibilité, etc.
+# Extraction des données détaillées d'un livre : titre, prix, disponibilité, etc.
 def scrape_product(url):
     response = requests.get(url)
     response.raise_for_status()
@@ -71,7 +71,7 @@ def scrape_product(url):
         "image_url": image_url
     }
 
-# Cette fonction télécharge les images des livres et gère les erreurs de téléchargement
+# Téléchargement des images des livres et la gestion des erreurs de téléchargement
 def download_image(url, path):
     try:
         response = requests.get(url, stream=True)
