@@ -33,7 +33,11 @@ python -m venv env
 Pour l'activer :
 source env/scripts/activate
 
-Ce script fonctionne avec Python 3 , il faut impérativement avoir installé les bibliothèques indiquées dans le fichier requirements.txt
+## Installation de librairies 
+
+Pour installer les librairies :
+pip install -r requirements.txt
+
 
 ## Pour lancer le scraping
 
