@@ -6,6 +6,8 @@ from urllib.parse import urljoin
 from tqdm import tqdm
 import re
 
+
+# URL de base du site à scraper
 BASE_SITE_URL = "https://books.toscrape.com/"
 
 # Récupération de toutes les catégories de livres depuis la page d'accueil
