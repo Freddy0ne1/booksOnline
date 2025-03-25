@@ -38,4 +38,4 @@ Ce script fonctionne avec Python 3 , il faut impérativement avoir installé les
 ## Pour lancer le scraping
 
 Pour exécuter le script, il suffit de lancer :
-python all_categories.py
+python main.py
