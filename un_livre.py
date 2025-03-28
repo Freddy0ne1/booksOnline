@@ -50,7 +50,7 @@ else:
 def save_to_csv(data, filename="../output/data.csv"):
     fieldnames = data.keys()
     
-    with open(filename, mode="w", newline="") as file:
+    with open(filename, mode="w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerow(data)
