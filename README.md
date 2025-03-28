@@ -43,3 +43,15 @@ pip install -r requirements.txt
 
 Pour exécuter le script, il suffit de lancer :
 python main.py
+
+## Interactivité
+
+Lorsque de l'exécution du script, une question simple est posée :
+ **Voulez-vous démarrer le scraping ? (o/n)**
+
+Choix du dossier de destination : 
+Si l’utilisateur accepte, le script lui demande où enregistrer les résultats, avec deux questions faciles
+
+Où voulez-vous créer le dossier de sortie ? : Pour ne pas enregistrer à la racine du script, utilisez ce type de chemin ("../mon_dossier")
+
+Quel nom voulez-vous donner au dossier ?
