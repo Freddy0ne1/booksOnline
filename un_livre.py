@@ -36,27 +36,40 @@ def scrape_product(url):
         "review_rating": review_rating,
         "image_url": image_url
     }
-# Création du dossier de stackage
-nom_dossier = "../output"  
 
-# Vérifier si le dossier n'existe pas avant de le créer
-if not os.path.exists(nom_dossier):
-    os.makedirs(nom_dossier)
-    print(f"Dossier '{nom_dossier}' créé avec succès.")
-else:
-    print(f"Le dossier '{nom_dossier}' existe déjà.")
-
-
-def save_to_csv(data, filename="../output/data.csv"):
+# Fonction pour sauvegarder les données dans un fichier CSV
+def save_to_csv(data, filepath):
     fieldnames = data.keys()
     
-    with open(filename, mode="w", newline="", encoding="utf-8") as file:
+    with open(filepath, mode="w", newline="") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerow(data)
 
 if __name__ == "__main__":
+    # Demande à l'utilisateur s'il souhaite démarrer le scraping
+    start = input("Voulez-vous démarrer le scraping ? (o/n) : ").strip().lower()
+    if start != "o":
+        print("Scraping annulé.")
+        exit()
+
+    # Demande à l'utilisateur où créer le dossier de sortie
+    chemin_base = input("Où voulez-vous créer le dossier de sortie ? (ex: C:/Users/VotreNom/Documents ou ./ pour le dossier courant) : ").strip()
+    nom_dossier = input("Quel nom voulez-vous donner au dossier de sortie ? : ").strip()
+    chemin_complet = os.path.join(chemin_base, nom_dossier)
+
+    # Création du dossier si nécessaire
+    if not os.path.exists(chemin_complet):
+        os.makedirs(chemin_complet)
+        print(f"Dossier '{chemin_complet}' créé avec succès.")
+    else:
+        print(f"Le dossier '{chemin_complet}' existe déjà.")
+
+    # Lancement du scraping
     product_url = "https://books.toscrape.com/catalogue/emma_17/index.html"  
     product_data = scrape_product(product_url)
-    save_to_csv(product_data)
-    print("Les données ont été enregistrées dans data.csv")
+
+    # Enregistrement des données
+    csv_path = os.path.join(chemin_complet, "data.csv")
+    save_to_csv(product_data, csv_path)
+    print(f"Les données ont été enregistrées dans : {csv_path}")
