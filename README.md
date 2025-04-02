@@ -1,57 +1,87 @@
-# Instructions d'utilisation - Books to Scrape
+# **Books to Scrape - Instructions d'utilisation**  
 
-Le script "all_categories.py" permet de scraper automatiquement les livres du site [Books to Scrape](https://books.toscrape.com), télécharger leurs images et sauvegarder les données dans des fichiers CSV organisés par catégorie.
-
----
-
-## Fonctionnalités
-
-  - Scraping de **toutes les catégories** du site.
-  - Extraction des **données détaillées** de chaque livre :
-  - Titre
-  - Prix (HT / TTC)
-  - Stock disponible
-  - Description
-  - Catégorie
-  - Note (rating)
-  - UPC (code produit)
-  - URL de la page et de l'image
-  - Enregistrement dans des fichiers CSV par catégorie.
-  - Téléchargement des **images de couverture** pour chaque livre.
-  - **Barre de progression** pour visualiser l'avancement avec `tqdm`.
-  - Gestion des erreurs réseau et des titres de fichiers non valides.
+Le script **`main.py`** permet de scraper automatiquement les livres du site [Books to Scrape](https://books.toscrape.com), de télécharger leurs images et de sauvegarder les données dans des fichiers CSV organisés par catégorie.  
 
 ---
 
-## Prérequis
+## 🚀 **Fonctionnalités**  
 
-Avant d'exécuter le script, il faut d'abord créer un environnement virtuel et l'activer avec les commandes ci-dessous
+✅ **Scraping de toutes les catégories** du site.  
+✅ **Extraction des données détaillées** de chaque livre :  
+   - 📌 **Titre**  
+   - 💰 **Prix** (HT / TTC)  
+   - 📦 **Stock disponible**  
+   - 📝 **Description**  
+   - 📂 **Catégorie**  
+   - ⭐ **Note (rating)**  
+   - 🔑 **UPC (code produit)**  
+   - 🔗 **URL de la page et de l’image**  
+✅ **Enregistrement des données** dans des fichiers CSV par catégorie.  
+✅ **Téléchargement des images de couverture** pour chaque livre.  
+✅ **Affichage d’une barre de progression** grâce à `tqdm`.  
 
-Pour le créer : 
+---
+
+## 🔧 **Prérequis**  
+
+### 1️⃣ **Outils nécessaires**  
+- **Visual Studio Code** (exemple d’utilisation basé sur cet éditeur) → [Téléchargement ici](https://code.visualstudio.com/download).  
+- **Git Bash** installé sur l’ordinateur → [Téléchargement ici](https://git-scm.com/downloads).  
+
+### 2️⃣ **Clonage du projet**  
+
+Dans Visual Studio Code :  
+1. Ouvrir l’explorateur de fichiers.  
+2. Cloner le repository avec la commande suivante :  
+
+   ```bash
+   git clone https://github.com/Freddy0ne1/booksOnline
+   ```
+3. Une fois cloné, ouvrir la palette de commandes (**Ctrl + Maj + P**), rechercher **"Create New Terminal (With Profile)"**, puis sélectionner **"Git Bash"**.  
+
+---
+
+## 🛠️ **Installation des dépendances**  
+
+### 1️⃣ **Créer et activer un environnement virtuel**  
+
+Dans le terminal **Git Bash** sous Visual Studio Code, exécuter :  
+
+```bash
+# Création de l’environnement virtuel
 python -m venv env
 
-Pour l'activer :
-source env/scripts/activate
+# Activation de l’environnement (Windows)
+source env/Scripts/activate
 
-## Installation de librairies 
+# Activation de l’environnement (Linux)
+source env/bin/activate
+```
 
-Pour installer les librairies :
+### 2️⃣ **Installer les librairies nécessaires**  
+
+```bash
 pip install -r requirements.txt
+```
 
+---
 
-## Pour lancer le scraping
+## ▶️ **Lancer le scraping**  
 
-Pour exécuter le script, il suffit de lancer :
+Exécuter le script avec :  
+
+```bash
 python main.py
+```
 
-## Interactivité
+### 🛠 **Interactivité du script**  
+Lors de l’exécution, deux questions seront posées :  
 
-Lorsque de l'exécution du script, une question simple est posée :
- **Voulez-vous démarrer le scraping ? (o/n)**
-
-Choix du dossier de destination : 
-Si l’utilisateur accepte, le script lui demande où enregistrer les résultats, avec deux questions faciles
-
-Où voulez-vous créer le dossier de sortie ? : Pour ne pas enregistrer à la racine du script, utilisez ce type de chemin ("../mon_dossier")
-
-Quel nom voulez-vous donner au dossier ?
+1. **Démarrer le scraping ?**  
+   ```
+   Voulez-vous démarrer le scraping ? (o/n)
+   ```
+2. **Nom du dossier de sortie**  
+   ```
+   Quel nom voulez-vous donner au dossier ?
+   ```
