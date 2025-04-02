@@ -154,7 +154,7 @@ if __name__ == "__main__":
         exit()
 
     # Demande à l'utilisateur le dossier de sortie
-    chemin_dossier = input("Où voulez-vous créer le dossier de sortie ? (ex: C:/Users/VotreNom/Documents ou ./ pour le dossier courant) : ").strip()
+    chemin_dossier = "../"
     nom_dossier = input("Quel nom voulez-vous donner au dossier de sortie ? : ").strip()
     
     chemin_complet = os.path.join(chemin_dossier, nom_dossier)
