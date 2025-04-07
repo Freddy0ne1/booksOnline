@@ -31,13 +31,16 @@ Le script **`main.py`** permet de scraper automatiquement les livres du site [Bo
 ### 2️⃣ **Clonage du projet**  
 
 Dans Visual Studio Code :  
-1. Ouvrir l’explorateur de fichiers.  
-2. Cloner le repository avec la commande suivante :  
+1. Ouvrir l’explorateur de fichiers (Explorer).  
+2. Clicker sur **clone Repository** et coller l'URL ci-dessous "repository source"  
 
-   ```bash
-   git clone https://github.com/Freddy0ne1/booksOnline
    ```
-3. Une fois cloné, ouvrir la palette de commandes (**Ctrl + Maj + P**), rechercher **"Create New Terminal (With Profile)"**, puis sélectionner **"Git Bash"**.  
+   https://github.com/Freddy0ne1/booksOnline
+      ```
+
+Une fois l'URL collée, appuyer sur la touche Entrée et selectionner le dossier de destination pour cloner le projet.
+
+3. Ouvrir la palette de commandes (**Ctrl + Maj + P**), rechercher **"Create New Terminal (With Profile)"**, puis sélectionner **"Git Bash"**.  
 
 ---
 
@@ -48,11 +51,18 @@ Dans Visual Studio Code :
 Dans le terminal **Git Bash** sous Visual Studio Code, exécuter :  
 
 ```bash
-# Création de l’environnement virtuel
+# Code pour Windows 
+
+# Création de l’environnement virtuel (Windows)
 python -m venv env
 
 # Activation de l’environnement (Windows)
 source env/Scripts/activate
+
+# Code pour linux
+
+# Création de l’environnement virtuel (Linux)
+python3 -m venv env
 
 # Activation de l’environnement (Linux)
 source env/bin/activate
